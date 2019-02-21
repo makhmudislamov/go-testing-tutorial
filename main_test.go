@@ -12,7 +12,7 @@ func TestCalculate(t *testing.T) {
 
 func TestTableCalculate(t *testing.T) {
 	var tests = []struct {
-		input int
+		input    int
 		expected int
 	}{
 		{2, 4},
@@ -27,4 +27,20 @@ func TestTableCalculate(t *testing.T) {
 			t.Error("Test Failed: {} inputted, {} expected, recieved: {}", test.input, test.expected, output)
 		}
 	}
+}
+
+func benchmarkCalculate(input int, b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Calculate(input)
+	}
+}
+
+func BenchmarkCalculate100(b *testing.B) {
+	benchmarkCalculate(100, b)
+}
+func BenchmarkCalculateNegative100(b *testing.B) {
+	benchmarkCalculate(-100, b)
+}
+func BenchmarkCalculateNegative1(b *testing.B) {
+	benchmarkCalculate(-1, b)
 }

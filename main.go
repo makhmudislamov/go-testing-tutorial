@@ -9,7 +9,5 @@ func Calculate (x int) (result int) {
 }
 
 func main() {
-	fmt.Println("Running Test Tutorial Func")
-	result := Calculate(2)
-	fmt.Println(result)
+	fmt.Println("Running Testing on Go Tutorial Func")
 }
